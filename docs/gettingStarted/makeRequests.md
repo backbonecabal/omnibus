@@ -36,6 +36,4 @@ https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_blockNumber?token=YOUR-API-
 
 ### Subscriptions and Filters
 
-In addition to the Ethereum API, Geth version 1.4 has experimental
-support for pub/sub using subscriptions. This, along with filters, is
-supported through Backbone's WebSocket endpoint.
+TODO
