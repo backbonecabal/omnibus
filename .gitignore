@@ -1,9 +1,9 @@
 # dependencies
 /node_modules
-
+vendor/
 # testing
 /coverage
-
+_site
 # misc
 .DS_Store
 .env.local
