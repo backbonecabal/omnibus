@@ -1,10 +1,12 @@
 # eth_getFilterChanges
 
-Polling method for a filter, which returns an array of logs which occurred since last poll.
+Polling method for a filter, which returns an array of logs which
+occurred since last poll.
 
 #### EXAMPLE
+
 ```bash
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 
 >{"jsonrpc":"2.0","method":"eth_getFilterChanges","params":["0xfe704947a3cd3ca12541458a4321c869"],"id":73}
 ```
@@ -12,19 +14,33 @@ Polling method for a filter, which returns an array of logs which occurred since
 ### RESPONSE
 
 #### RESULT FIELDS
-- `LOG OBJECT ARRAY` - Array of log objects, or an empty array if nothing has changed since last poll.
-    - For filters created with eth_newBlockFilter the return are block hashes (32 Bytes), e.g. ["0x3454645634534..."].
-    - For filters created with eth_newPendingTransactionFilter the return are transaction hashes (32 Bytes), e.g. ["0x6345343454645..."].
-    - For filters created with eth_newFilter logs are objects with following params:
-- `removed`: true when the log was removed, due to a chain reorganization. false if its a valid log.
-- `logIndex`: integer of the log index position in the block. null when its pending log.
-- `transactionIndex`: integer of the transactions index position log was created from. null when its pending log.
-- `transactionHash`: 32 Bytes - hash of the transactions this log was created from. null when its pending log.
-- `blockHash`: 32 Bytes - hash of the block where this log was in. null when its pending. null when its pending log.
-- `blockNumber`: the block number where this log was in. null when its pending. null when its pending log.
+
+- `LOG OBJECT ARRAY` - Array of log objects, or an empty array if
+  nothing has changed since last poll.
+  - For filters created with eth_newBlockFilter the return are block
+    hashes (32 Bytes), e.g. ["0x3454645634534..."].
+  - For filters created with eth_newPendingTransactionFilter the return
+    are transaction hashes (32 Bytes), e.g. ["0x6345343454645..."].
+  - For filters created with eth_newFilter logs are objects with
+    following params:
+- `removed`: true when the log was removed, due to a chain
+  reorganization. false if its a valid log.
+- `logIndex`: integer of the log index position in the block. null when
+  its pending log.
+- `transactionIndex`: integer of the transactions index position log was
+  created from. null when its pending log.
+- `transactionHash`: 32 Bytes - hash of the transactions this log was
+  created from. null when its pending log.
+- `blockHash`: 32 Bytes - hash of the block where this log was in. null
+  when its pending. null when its pending log.
+- `blockNumber`: the block number where this log was in. null when its
+  pending. null when its pending log.
 - `address`: 20 Bytes - address from which this log originated.
 - `data`: DATA - contains the non-indexed arguments of the log.
-- `topics`: Array of DATA - Array of 0 to 4 32 Bytes DATA of indexed log arguments. (In solidity: The first topic is the hash of the signature of the event (e.g. Deposit(address,bytes32,uint256)), except you declared the event with the anonymous specifier.)
+- `topics`: Array of DATA - Array of 0 to 4 32 Bytes DATA of indexed log
+  arguments. (In solidity: The first topic is the hash of the signature
+  of the event (e.g. Deposit(address,bytes32,uint256)), except you
+  declared the event with the anonymous specifier.)
 
 #### BODY
 

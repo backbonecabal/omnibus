@@ -1,5 +1,11 @@
-const { writeFile, lstatSync, readdirSync, readFileSync, existsSync } = require('fs');
-const { join, dirname, resolve, parse } = require('path');
+const {
+  writeFile,
+  lstatSync,
+  readdirSync,
+  readFileSync,
+  existsSync
+} = require('fs');
+const {join, dirname, resolve, parse} = require('path');
 const mkdirp = require('mkdirp');
 const YAML = require('yamljs');
 const origin = require('git-origin-url');
@@ -17,7 +23,7 @@ origin((err, url) => {
 
   console.log(`building branch "${branch}" from ${githubUrl}`);
 
-  const matchName = nameToMatch => (name) => {
+  const matchName = nameToMatch => name => {
     if (typeof name === 'string') {
       return name === nameToMatch;
     }
@@ -44,13 +50,10 @@ origin((err, url) => {
     return findAllHeaders(newString, newAgg);
   }
 
-  const isDirectory =
-    source =>
-      lstatSync(source).isDirectory();
+  const isDirectory = source => lstatSync(source).isDirectory();
 
-  const getDirectories =
-    source =>
-      readdirSync(source).map(name => join(source, name));
+  const getDirectories = source =>
+    readdirSync(source).map(name => join(source, name));
 
   const rootContents = getDirectories(docRoot);
 
@@ -61,15 +64,19 @@ origin((err, url) => {
     return contents
       .map(item => parse(item))
       .sort((a, b) => {
-        const aOrder = order ? order.findIndex(matchName(a.name)) : a.name;
-        const bOrder = order ? order.findIndex(matchName(b.name)) : b.name;
+        const aOrder = order
+          ? order.findIndex(matchName(a.name))
+          : a.name;
+        const bOrder = order
+          ? order.findIndex(matchName(b.name))
+          : b.name;
 
         if (aOrder < bOrder) return -1;
         if (aOrder > bOrder) return 1;
         return 0;
       })
       .reduce((acc, item) => {
-        const { base, name, ext, dir } = item;
+        const {base, name, ext, dir} = item;
         const newPathname = `${dir}/${base}`;
 
         if (!isDirectory(newPathname)) {
@@ -80,42 +87,53 @@ origin((err, url) => {
           const headers = findAllHeaders(content);
 
           // TODO redundant?
-          return [...acc, {
-            name,
-            title: headers['#'] ? headers['#'][0] : name,
-            content,
-            url: `${githubUrl}${entryFolder}${path}/${base}`,
-            headers,
-          }];
+          return [
+            ...acc,
+            {
+              name,
+              title: headers['#'] ? headers['#'][0] : name,
+              content,
+              url: `${githubUrl}${entryFolder}${path}/${base}`,
+              headers
+            }
+          ];
         }
 
         // if directory, recurse through the subdirector
-        const content = compileDirectory(getDirectories(newPathname), newPathname, `${path}/${base}`);
+        const content = compileDirectory(
+          getDirectories(newPathname),
+          newPathname,
+          `${path}/${base}`
+        );
         const title = order.find(matchName(name));
 
         return [
           ...acc,
           {
             name,
-            title: typeof title === 'string' ? title : title[Object.keys(title)[0]],
+            title:
+              typeof title === 'string'
+                ? title
+                : title[Object.keys(title)[0]],
             content,
-            url: `${githubUrl}${entryFolder}${path}/${base}`,
-          },
+            url: `${githubUrl}${entryFolder}${path}/${base}`
+          }
         ];
       }, []);
   };
 
-  const fileName = branch === 'master' ? 'bundle.json' : 'bundleDev.json';
+  const fileName =
+    branch === 'master' ? 'bundle.json' : 'bundleDev.json';
 
   writeFile(
     fileName,
     JSON.stringify(compileDirectory(rootContents, docRoot)),
     'utf8',
-    (err) => {
+    err => {
       if (err) return console.log(err);
 
       console.log(`${fileName} successfully written.`);
       process.exit();
-    },
+    }
   );
 });

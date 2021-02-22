@@ -13,6 +13,7 @@ Returns the number of peers currently connected to the client.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/net_peerCount
@@ -22,15 +23,16 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"net_peerCount","params": [],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"net_peerCount","params": [],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
+
 - `PEER COUNT` - integer of the number of connected peers.
 
 #### BODY

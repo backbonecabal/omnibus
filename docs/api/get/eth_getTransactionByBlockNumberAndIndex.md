@@ -2,7 +2,8 @@
 
 ## /v1/jsonrpc/:network/eth_getTransactionByBlockNumberAndIndex
 
-Returns information about a transaction by block number and transaction index position.
+Returns information about a transaction by block number and transaction
+index position.
 
 ### REQUEST
 
@@ -13,10 +14,15 @@ Returns information about a transaction by block number and transaction index po
 `Content-Type: application/json`
 
 #### REQUEST PARAMS
-- `BLOCK PARAMETER` _[required]_ - an integer block number, or the string "latest", "earliest" or "pending", see the [default block parameter](https://github.com/ethereum/wiki/wiki/JSON-RPC#the-default-block-parameter)
-- `TRANSACTION INDEX POSITION` _[required]_ - a hex of the integer representing the position in the block
+
+- `BLOCK PARAMETER` _[required]_ - an integer block number, or the
+  string "latest", "earliest" or "pending", see the
+  [default block parameter](https://github.com/ethereum/wiki/wiki/JSON-RPC#the-default-block-parameter)
+- `TRANSACTION INDEX POSITION` _[required]_ - a hex of the integer
+  representing the position in the block
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_getTransactionByBlockNumberAndIndex --data-urlencode 'params=["0x5BAD55","0x0"]'
@@ -26,27 +32,34 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params": ["0x5BAD55","0x0"],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_getTransactionByBlockNumberAndIndex","params": ["0x5BAD55","0x0"],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `TRANSACTION` - A transaction object, or null when no transaction was found
-    - `hash`: 32 Bytes - hash of the transaction.
-    - `nonce`: the number of transactions made by the sender prior to this one.
-    - `blockHash`: 32 Bytes - hash of the block where this transaction was in. null when its pending.
-    - `blockNumber`: block number where this transaction was in. null when its pending.
-    - `transactionIndex`: integer of the transactions index position in the block. null when its pending.
-    - `from`: 20 Bytes - address of the sender.
-    - `to`: 20 Bytes - address of the receiver. null when its a contract creation transaction.
-    - `value`: value transferred in Wei.
-    - `gasPrice`: gas price provided by the sender in Wei.
-    - `gas`: gas provided by the sender.
-    - `input`: the data send along with the transaction.
+
+- `TRANSACTION` - A transaction object, or null when no transaction was
+  found
+  - `hash`: 32 Bytes - hash of the transaction.
+  - `nonce`: the number of transactions made by the sender prior to this
+    one.
+  - `blockHash`: 32 Bytes - hash of the block where this transaction was
+    in. null when its pending.
+  - `blockNumber`: block number where this transaction was in. null when
+    its pending.
+  - `transactionIndex`: integer of the transactions index position in
+    the block. null when its pending.
+  - `from`: 20 Bytes - address of the sender.
+  - `to`: 20 Bytes - address of the receiver. null when its a contract
+    creation transaction.
+  - `value`: value transferred in Wei.
+  - `gasPrice`: gas price provided by the sender in Wei.
+  - `gas`: gas provided by the sender.
+  - `input`: the data send along with the transaction.
 
 #### BODY
 

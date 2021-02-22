@@ -2,7 +2,8 @@
 
 ## /v1/ticker/symbols
 
-Get a list of supported symbols (currency pairs), including fiat, crypto, and tokens
+Get a list of supported symbols (currency pairs), including fiat,
+crypto, and tokens
 
 ### GET
 
@@ -19,10 +20,10 @@ curl --include \
 
 ### Response
 
-| Attributes                                 |          |                                         |
-|--------------------------------------------|----------|-----------------------------------------|
-| `symbols`                                  |          | array                                   |
-| List of supported symbols (currency pairs) | `string` | 0                                       |
+| Attributes                                 |          |       |
+| ------------------------------------------ | -------- | ----- |
+| `symbols`                                  |          | array |
+| List of supported symbols (currency pairs) | `string` | 0     |
 
 #### Symbols Response
 

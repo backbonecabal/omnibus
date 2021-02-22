@@ -2,7 +2,8 @@
 
 ## /v1/jsonrpc/:network/eth_getWork
 
-Returns the hash of the current block, the seedHash, and the boundary condition to be met ("target").
+Returns the hash of the current block, the seedHash, and the boundary
+condition to be met ("target").
 
 ### REQUEST
 
@@ -13,6 +14,7 @@ Returns the hash of the current block, the seedHash, and the boundary condition 
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_getWork
@@ -22,20 +24,20 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"eth_getWork","params": [],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_getWork","params": [],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `WORK ARRAY`
-    - 32 Bytes - current block header pow-hash
-    - 32 Bytes - the seed hash used for the DAG.
-    - 32 Bytes - the boundary condition ("target"), 2^256 / difficulty.
 
+- `WORK ARRAY`
+  - 32 Bytes - current block header pow-hash
+  - 32 Bytes - the seed hash used for the DAG.
+  - 32 Bytes - the boundary condition ("target"), 2^256 / difficulty.
 
 #### BODY
 

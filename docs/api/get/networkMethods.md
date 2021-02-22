@@ -2,7 +2,8 @@
 
 ## /v1/jsonrpc/network/methods
 
-The JSON-RPC methods supported by the `/v1/jsonrpc/{network}/{method}` (GET) and `/v1/jsonrpc/{network}` (POST) endpoints.
+The JSON-RPC methods supported by the `/v1/jsonrpc/{network}/{method}`
+(GET) and `/v1/jsonrpc/{network}` (POST) endpoints.
 
 ### GET
 
@@ -11,7 +12,7 @@ The JSON-RPC methods supported by the `/v1/jsonrpc/{network}/{method}` (GET) and
 ### Parameters
 
 | Attributes |                                                                                          |      |
-|------------|------------------------------------------------------------------------------------------|------|
+| ---------- | ---------------------------------------------------------------------------------------- | ---- |
 | network    | Ethereum network in lowercase. Possible values: `mainnet`, `ropsten`, `kovan`, `rinkeby` | enum |
 
 ### Request
@@ -25,11 +26,11 @@ curl --include \
 
 ### Response
 
-| Attributes                                                                     |          |       |
-|--------------------------------------------------------------------------------|----------|-------|
-| `get`                                                                          | required | array |
+| Attributes                                                                       |          |       |
+| -------------------------------------------------------------------------------- | -------- | ----- |
+| `get`                                                                            | required | array |
 | List of methods supported by the `/v1/jsonrpc/{network}/{method}` endpoint (GET) | `string` | 0     |
-| `post`                                                                         | required | array |
+| `post`                                                                           | required | array |
 | List of methods supported by the `/v1/jsonrpc/{network}` endpoint (POST)         | `string` | 0     |
 
 #### Methods Response

@@ -2,7 +2,9 @@
 
 ## /v2/blacklist
 
-Return a blacklist of phishing sites, as well as a whitelist and a fuzzylist. This list is maintained by the MetaMask project at [https://github.com/MetaMask/eth-phishing-detect/blob/master/src/config.json](https://github.com/MetaMask/eth-phishing-detect/blob/master/src/config.json).
+Return a blacklist of phishing sites, as well as a whitelist and a
+fuzzylist. This list is maintained by the MetaMask project at
+[https://github.com/MetaMask/eth-phishing-detect/blob/master/src/config.json](https://github.com/MetaMask/eth-phishing-detect/blob/master/src/config.json).
 
 ### GET
 
@@ -20,7 +22,7 @@ curl --include \
 ### Response
 
 | Attributes  |          |           |
-|-------------|----------|-----------|
+| ----------- | -------- | --------- |
 | `version`   | required | number    |
 |             |          | Version   |
 | `tolerance` | required | number    |

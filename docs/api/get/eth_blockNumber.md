@@ -13,6 +13,7 @@ Returns the number of most recent block.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_blockNumber
@@ -24,14 +25,16 @@ curl https://mainnet.backbonecabal.xyz/ \
     -d '{"jsonrpc":"2.0","method":"eth_blockNumber","params": [],"id":1}'
 
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_blockNumber","params":[],"id":73}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `BLOCK NUMBER` - a hex code of an integer representing the current block number the client is on.
+
+- `BLOCK NUMBER` - a hex code of an integer representing the current
+  block number the client is on.
 
 #### BODY
 

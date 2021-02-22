@@ -13,6 +13,7 @@ Returns true if client is actively mining new blocks.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_mining
@@ -22,15 +23,16 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"eth_mining","params": [],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_mining","params": [],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
+
 - `IS MINING FLAG` - a boolean indicating if the client is mining
 
 #### BODY

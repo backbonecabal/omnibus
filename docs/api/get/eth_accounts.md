@@ -13,19 +13,22 @@ Returns a list of addresses owned by client.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_accounts
 
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_accounts","params":[],"id":73}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `ADDRESSES` - arrays of hex codes as strings representing the addresses owned by the client
+
+- `ADDRESSES` - arrays of hex codes as strings representing the
+  addresses owned by the client
 
 #### BODY
 

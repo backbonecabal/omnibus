@@ -13,6 +13,7 @@ Returns the current network id.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/net_version
@@ -22,15 +23,16 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"net_version","params": [],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"net_version","params": [],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
+
 - `NETWORK ID` - a string representing the current network id.
 
 #### BODY

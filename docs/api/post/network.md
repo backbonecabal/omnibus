@@ -2,14 +2,17 @@
 
 ## /v1/jsonrpc/network
 
-A request using an "HTTP POST-compatible" (state-changing) JSON-RPC method. Use the `/v1/jsonrpc/{network}/methods` endpoint to get the list of permitted methods. Use the regular Ethereum JSON-RPC format for the POST body.
+A request using an "HTTP POST-compatible" (state-changing) JSON-RPC
+method. Use the `/v1/jsonrpc/{network}/methods` endpoint to get the list
+of permitted methods. Use the regular Ethereum JSON-RPC format for the
+POST body.
 
 ### POST
 
 `POST https://api.backbonecabal.xyz/v1/jsonrpc/network`
 
 | Parameters |                              |        |
-|------------|------------------------------|--------|
+| ---------- | ---------------------------- | ------ |
 | Symbol     | Ticker symbol (currency pair | string |
 
 ### Request
@@ -17,7 +20,7 @@ A request using an "HTTP POST-compatible" (state-changing) JSON-RPC method. Use 
 #### Attributes
 
 | Attributes                         |          |                     |
-|------------------------------------|----------|---------------------|
+| ---------------------------------- | -------- | ------------------- |
 | `jsonrpc`                          | required | enum                |
 | JSON-RPC version                   | `2.0`    | string              |
 | `id`                               | required | number              |
@@ -48,7 +51,7 @@ curl --include \
 ### Response
 
 | Attributes       |          |                                         |
-|------------------|----------|-----------------------------------------|
+| ---------------- | -------- | --------------------------------------- |
 | `jsonrpc`        | required | enum                                    |
 | JSON-RPC version | `2.0`    | string                                  |
 | `id`             | required | number                                  |
@@ -105,7 +108,7 @@ curl --include \
 ### Request
 
 | Attributes                         |          |                     |
-|------------------------------------|----------|---------------------|
+| ---------------------------------- | -------- | ------------------- |
 | `jsonrpc`                          | required | enum                |
 | JSON-RPC version                   | `2.0`    | string              |
 | `id`                               | required | number              |
@@ -132,6 +135,7 @@ curl --include \
 }" \
 'https://api.backbonecabal.xyz/v1/jsonrpc/{network}'
 ```
+
 ### Response
 
 Bad JSON in POST body or missing Content-Type Headers
@@ -145,7 +149,7 @@ Bad JSON in POST body or missing Content-Type Headers
 ### Request
 
 | Attributes                         |          |                     |
-|------------------------------------|----------|---------------------|
+| ---------------------------------- | -------- | ------------------- |
 | `jsonrpc`                          | required | enum                |
 | JSON-RPC version                   | `2.0`    | string              |
 | `id`                               | required | number              |
@@ -182,7 +186,7 @@ JSON-RPC method is not a valid POST method
 ### Request
 
 | Attributes                         |          |                     |
-|------------------------------------|----------|---------------------|
+| ---------------------------------- | -------- | ------------------- |
 | `jsonrpc`                          | required | enum                |
 | JSON-RPC version                   | `2.0`    | string              |
 | `id`                               | required | number              |
@@ -223,7 +227,7 @@ Server error
 ### Request
 
 | Attributes                         |          |                     |
-|------------------------------------|----------|---------------------|
+| ---------------------------------- | -------- | ------------------- |
 | `jsonrpc`                          | required | enum                |
 | JSON-RPC version                   | `2.0`    | string              |
 | `id`                               | required | number              |

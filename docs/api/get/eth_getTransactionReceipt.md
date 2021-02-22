@@ -2,7 +2,8 @@
 
 ## /v1/jsonrpc/:network/eth_getTransactionReceipt
 
-Returns the receipt of a transaction by transaction hash. **Note** that the receipt is not available for pending transactions.
+Returns the receipt of a transaction by transaction hash. **Note** that
+the receipt is not available for pending transactions.
 
 ### REQUEST
 
@@ -13,9 +14,12 @@ Returns the receipt of a transaction by transaction hash. **Note** that the rece
 `Content-Type: application/json`
 
 #### REQUEST PARAMS
-- `TRANSACTION HASH` _[required]_ - a string representing the hash (32 bytes) of a transaction
+
+- `TRANSACTION HASH` _[required]_ - a string representing the hash (32
+  bytes) of a transaction
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_getTransactionReceipt --data-urlencode 'params=["0xbb3a336e3f823ec18197f1e13ee875700f08f03e2cab75f0d0b118dabb44cba0"]'
@@ -25,31 +29,40 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params": ["0xbb3a336e3f823ec18197f1e13ee875700f08f03e2cab75f0d0b118dabb44cba0"],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_getTransactionReceipt","params": ["0xbb3a336e3f823ec18197f1e13ee875700f08f03e2cab75f0d0b118dabb44cba0"],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `TRANSACTION RECEIPT` - A transaction receipt object, or null when no receipt was found:
-    - `transactionHash`: 32 Bytes - hash of the transaction.
-    - `transactionIndex`: integer of the transactions index position in the block.
-    - `blockHash`: 32 Bytes - hash of the block where this transaction was in.
-    - `blockNumber`: block number where this transaction was in.
-    - `from`: 20 Bytes - address of the sender.
-    - `to`: 20 Bytes - address of the receiver. null when its a contract creation transaction.
-    - `cumulativeGasUsed`: the total amount of gas used when this transaction was executed in the block.
-    - `gasUsed`: the amount of gas used by this specific transaction alone.
-    - `contractAddress`: 20 Bytes - the contract address created, if the transaction was a contract creation, otherwise - null.
-    - `logs`: Array - Array of log objects, which this transaction generated.
-    - `logsBloom`: 256 Bytes - Bloom filter for light clients to quickly retrieve related logs.
 
-It also returns _either_:
-    - `root` : 32 bytes of post-transaction stateroot (pre Byzantium)
-    - `status`: either 1 (success) or 0 (failure)
+- `TRANSACTION RECEIPT` - A transaction receipt object, or null when no
+  receipt was found:
+  - `transactionHash`: 32 Bytes - hash of the transaction.
+  - `transactionIndex`: integer of the transactions index position in
+    the block.
+  - `blockHash`: 32 Bytes - hash of the block where this transaction was
+    in.
+  - `blockNumber`: block number where this transaction was in.
+  - `from`: 20 Bytes - address of the sender.
+  - `to`: 20 Bytes - address of the receiver. null when its a contract
+    creation transaction.
+  - `cumulativeGasUsed`: the total amount of gas used when this
+    transaction was executed in the block.
+  - `gasUsed`: the amount of gas used by this specific transaction
+    alone.
+  - `contractAddress`: 20 Bytes - the contract address created, if the
+    transaction was a contract creation, otherwise - null.
+  - `logs`: Array - Array of log objects, which this transaction
+    generated.
+  - `logsBloom`: 256 Bytes - Bloom filter for light clients to quickly
+    retrieve related logs.
+
+It also returns _either_: - `root` : 32 bytes of post-transaction
+stateroot (pre Byzantium) - `status`: either 1 (success) or 0 (failure)
 
 #### BODY
 

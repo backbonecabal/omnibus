@@ -13,6 +13,7 @@ Returns the number of hashes per second that the node is mining with.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_gasPrice
@@ -22,16 +23,18 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"eth_gasPrice","params": [],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_gasPrice","params":[],"id":73}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `HASHRATE` - a hex code of an integer representing the current gas price in wei.
+
+- `HASHRATE` - a hex code of an integer representing the current gas
+  price in wei.
 
 #### BODY
 

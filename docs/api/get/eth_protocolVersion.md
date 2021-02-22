@@ -13,6 +13,7 @@ Returns the current ethereum protocol version.
 `Content-Type: application/json`
 
 #### EXAMPLE
+
 ```bash
 // HTTP GET
 curl -G https://api.backbonecabal.xyz/v1/jsonrpc/mainnet/eth_protocolVersion
@@ -22,16 +23,18 @@ curl https://mainnet.backbonecabal.xyz/ \
     -X POST \
     -H "Content-Type: application/json" \
     -d '{"jsonrpc":"2.0","method":"eth_protocolVersion","params": [],"id":1}'
-    
+
 // WEBSOCKETS
->wscat -c wss://mainnet.backbonecabal.xyz/ws 
+>wscat -c wss://mainnet.backbonecabal.xyz/ws
 >{"jsonrpc":"2.0","method":"eth_protocolVersion","params": [],"id":1}
 ```
 
 ### RESPONSE
 
 #### RESULT FIELDS
-- `PROTOCOL VERSION` - a string indicating the current ethereum protocol version
+
+- `PROTOCOL VERSION` - a string indicating the current ethereum protocol
+  version
 
 #### BODY
 
