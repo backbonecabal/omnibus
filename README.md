@@ -1,10 +1,6 @@
-# starter
+# Backbone Cabal RPC Documentation
 
-1. [Generate with the same files and folders](https://github.com/rundocs/starter/generate) from this repository
-2. Set up your GitHub Pages to source(`/`)
-3. Now you can view your documentation in your site
-
-## site.pages
+## ethereum and evm-chains
 
 <!-- prettier-ignore-start -->
 
@@ -16,17 +12,17 @@
 
 <!-- prettier-ignore-end -->
 
-## Documents
+## Support
 
-https://jekyll-rtd-theme.rundocs.io
+[manifold finance](https://github.com/manifoldfinance)
 
-## Local debug
+## Local Development
 
 ```sh
 make
 make server
 ```
 
-## The license
+## License 
 
-The theme is available as open source under the terms of the MIT License
+Apache-2.0
